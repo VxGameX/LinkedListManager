@@ -53,14 +53,36 @@ bool RemoveFromList(LinkedListNode*& list, int value)
 	return true;
 }
 
-int DisplayList(LinkedListNode* list)
+void DisplayList(LinkedListNode* list)
 {
-	return list != NULL ? DisplayList(list->next) : ;
+	LinkedListNode* current = new LinkedListNode();
+
+	current = list;
+
+	cout << "- Begining -\n";
+	while (current != NULL)
+	{
+		cout << "- " << current->value << endl;
+		current = current->next;
+	}
+	cout << "- End -\n";
 }
 
 bool SearchValue(LinkedListNode*& list, int value)
 {
-	return true;
+	LinkedListNode* current = new LinkedListNode();
+	current = list;
+
+	while ((current != NULL) && (current->value <= value))
+	{
+		if (current->value == value)
+		{
+			return true;
+		}
+		current = current->next;
+	}
+
+	return false;
 }
 
 bool IsListEmpty(LinkedListNode*& list)

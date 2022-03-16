@@ -12,3 +12,4 @@ void DisplayMenu();
 void Add();
 void Remove();
 void Display();
+void Search();

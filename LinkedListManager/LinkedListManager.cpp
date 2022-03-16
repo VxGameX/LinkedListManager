@@ -39,11 +39,12 @@ void DisplayMenu()
     string menuOptionString;
     int menuOption = 0;
 
-    cout << "Select an option. (1 - 4)\n";
+    cout << "Select an option. (1 - 5)\n";
     cout << "1. Add\n";
     cout << "2. Remove\n";
     cout << "3. Display\n";
-    cout << "4. Exit\n\n";
+    cout << "4. Search\n";
+    cout << "5. Exit\n\n";
     cout << ">> ";
 
     cin >> menuOptionString;
@@ -62,10 +63,13 @@ void DisplayMenu()
             Display();
             break;
         case 4:
+            Search();
+            break;
+        case 5:
             ExitProgram();
             break;
         default:
-            cout << "Please, enter a valid option. (1 - 4)\n";
+            cout << "Please, enter a valid option. (1 - 5)\n";
             Pause();
             break;
     }
@@ -101,7 +105,11 @@ void Remove()
 
     ClearConsole();
 
-    if (!IsListEmpty(list))
+    if (IsListEmpty(list))
+    {
+        cout << "List is currently empty.\n";
+    }
+    else
     {
         cout << "Enter the number to remove: \n>> ";
         cin >> valueString;
@@ -118,10 +126,6 @@ void Remove()
 
         RemoveFromList(list, value) ? cout << value << " deleted." : cout << value << " not found.x";
     }
-    else
-    {
-        cout << "List is currently empty.\n";
-    }
 
     Pause();
 }
@@ -136,15 +140,40 @@ void Display()
     }
     else
     {
-        cout << "- Beggining -\n";
-        do
-        {
-            cout << "- " << DisplayList(list);
-
-            list = list->next;
-        } while (!IsListEmpty(list));
-        cout << "- End -\n";
+        DisplayList(list);
     }
     
+    Pause();
+}
+
+void Search()
+{
+    string valueString;
+    int value;
+
+    ClearConsole();
+
+    if (IsListEmpty(list))
+    {
+        cout << "List is currently empty.\n";
+    }
+    else
+    {
+        cout << "Enter the number to search: \n>> ";
+        cin >> valueString;
+
+        ClearConsole();
+
+        while (!IsNumber(valueString))
+        {
+            cout << "Only positives int values are allowed. (input: " << valueString << ")\n >>";
+            cin >> valueString;
+        }
+
+        value = stoi(valueString);
+
+        SearchValue(list, value) ? cout << value << " found." : cout << value << " not found.";
+    }
+
     Pause();
 }

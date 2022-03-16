@@ -12,6 +12,6 @@ struct LinkedListNode;
 
 void AddToList(LinkedListNode*&, int);
 bool RemoveFromList(LinkedListNode*&, int);
-int DisplayList(LinkedListNode*);
+void DisplayList(LinkedListNode*);
 bool SearchValue(LinkedListNode*&, int);
 bool IsListEmpty(LinkedListNode*&);
