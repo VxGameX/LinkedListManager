@@ -15,13 +15,13 @@
 
 using namespace std;
 
-LinkedListNode* list = NULL;
+LinkedListNode* listHead = NULL;
 
 int main()
 {
     cout << "- NOTE:\n";
     cout << "This program uses int data type (only positive numbers) to store given values.\n";
-    cout << "This program follows linked list general rules.\n\n";
+    cout << "This program follows linked listHead general rules.\n\n";
 
     Pause();
     ClearConsole();
@@ -95,7 +95,7 @@ void Add()
 
     value = stoi(valueString);
 
-    AddToList(list, value);
+    AddToList(listHead, value);
 }
 
 void Remove()
@@ -105,7 +105,7 @@ void Remove()
 
     ClearConsole();
 
-    if (IsListEmpty(list))
+    if (IsListEmpty(listHead))
     {
         cout << "List is currently empty.\n";
     }
@@ -124,7 +124,7 @@ void Remove()
 
         value = stoi(valueString);
 
-        RemoveFromList(list, value) ? cout << value << " deleted." : cout << value << " not found.x";
+        RemoveFromList(listHead, value) ? cout << value << " deleted." : cout << value << " not found.x";
     }
 
     Pause();
@@ -134,13 +134,13 @@ void Display()
 {
     ClearConsole();
 
-    if (IsListEmpty(list))
+    if (IsListEmpty(listHead))
     {
         cout << "List is currently empty.\n";
     }
     else
     {
-        DisplayList(list);
+        DisplayList(listHead);
     }
     
     Pause();
@@ -153,7 +153,7 @@ void Search()
 
     ClearConsole();
 
-    if (IsListEmpty(list))
+    if (IsListEmpty(listHead))
     {
         cout << "List is currently empty.\n";
     }
@@ -172,7 +172,7 @@ void Search()
 
         value = stoi(valueString);
 
-        SearchValue(list, value) ? cout << value << " found." : cout << value << " not found.";
+        SearchValue(listHead, value) ? cout << value << " found." : cout << value << " not found.";
     }
 
     Pause();

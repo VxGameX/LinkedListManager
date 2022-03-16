@@ -16,10 +16,10 @@ struct LinkedListNode
 	LinkedListNode* next;
 };
 
-void AddToList(LinkedListNode*& list, int value)
+void AddToList(LinkedListNode*& listHead, int value)
 {
 	LinkedListNode* newNode = new LinkedListNode();
-	LinkedListNode* aux1 = list, * aux2;
+	LinkedListNode* aux1 = listHead, * aux2;
 
 	newNode->value = value;
 
@@ -29,14 +29,14 @@ void AddToList(LinkedListNode*& list, int value)
 		aux1 = aux1->next;
 	}
 
-	list == aux1 ? list = newNode : aux2->next = newNode;
+	listHead == aux1 ? listHead = newNode : aux2->next = newNode;
 
 	newNode->next = aux1;
 }
 
-bool RemoveFromList(LinkedListNode*& list, int value)
+bool RemoveFromList(LinkedListNode*& listHead, int value)
 {
-	LinkedListNode* previous = NULL, * auxDelete = list;
+	LinkedListNode* previous = NULL, * auxDelete = listHead;
 
 	// Search
 	while ((auxDelete != NULL) && (auxDelete->value != value))
@@ -48,18 +48,18 @@ bool RemoveFromList(LinkedListNode*& list, int value)
 	// Number not found
 	if (auxDelete == NULL) return false;
 
-	previous == NULL ? list = list->next : previous->next = auxDelete->next;
+	previous == NULL ? listHead = listHead->next : previous->next = auxDelete->next;
 
 	delete auxDelete;
 
 	return true;
 }
 
-void DisplayList(LinkedListNode* list)
+void DisplayList(LinkedListNode* listHead)
 {
 	LinkedListNode* current = new LinkedListNode();
 
-	current = list;
+	current = listHead;
 
 	cout << "- Begining -\n";
 	while (current != NULL)
@@ -70,10 +70,10 @@ void DisplayList(LinkedListNode* list)
 	cout << "- End -\n";
 }
 
-bool SearchValue(LinkedListNode*& list, int value)
+bool SearchValue(LinkedListNode*& listHead, int value)
 {
 	LinkedListNode* current = new LinkedListNode();
-	current = list;
+	current = listHead;
 
 	while ((current != NULL) && (current->value <= value))
 	{
@@ -87,7 +87,7 @@ bool SearchValue(LinkedListNode*& list, int value)
 	return false;
 }
 
-bool IsListEmpty(LinkedListNode*& list)
+bool IsListEmpty(LinkedListNode*& listHead)
 {
-	return list == NULL;
+	return listHead == NULL;
 }
