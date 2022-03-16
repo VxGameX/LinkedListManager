@@ -116,6 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4703;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,9 +142,12 @@
   <ItemGroup>
     <ClCompile Include="GenericFunctions.cpp" />
     <ClCompile Include="LinkedListManager.cpp" />
+    <ClCompile Include="LinkedListStruct.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GenericFunctions.h" />
+    <ClInclude Include="LinkedListManager.h" />
+    <ClInclude Include="LinkedListStruct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

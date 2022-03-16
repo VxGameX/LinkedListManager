@@ -7,11 +7,10 @@
 // Daniel Báez - 1073597
 
 #include <iostream>
-#include <string>
+
+#include "GenericFunctions.h"
 
 using namespace std;
-
-// Checks if string is a number
 
 /// <summary>
 /// Checks if string is a number
@@ -32,6 +31,10 @@ bool IsNumber(string value)
 /// </summary>
 void ExitProgram()
 {
+    ClearConsole();
+
+    cout << "Thanks for prefering us!\n";
+
     exit(EXIT_SUCCESS);
 }
 
@@ -39,10 +42,10 @@ void ExitProgram()
 /// Clears the console
 /// </summary>
 /// <param name="textToShow">Text to show at the top of the console</param>
-void ClearConsole(string textToShow)
+void ClearConsole()
 {
     system("cls");
-    cout << "-- " << textToShow << " --\n\n";
+    cout << "-- Linked List --\n\n";
 }
 
 /// <summary>
