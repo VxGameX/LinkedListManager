@@ -50,6 +50,8 @@ bool RemoveFromList(LinkedListNode*& list, int value)
 
 	previous == NULL ? list = list->next : previous->next = auxDelete->next;
 
+	delete auxDelete;
+
 	return true;
 }
 
