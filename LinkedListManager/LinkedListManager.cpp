@@ -102,6 +102,7 @@ void Remove()
 {
     string valueString;
     int value;
+    bool endRemoving = true;
 
     ClearConsole();
 
@@ -124,7 +125,10 @@ void Remove()
 
         value = stoi(valueString);
 
-        RemoveFromList(listHead, value) ? cout << value << " deleted." : cout << value << " not found.x";
+        while (SearchValue(listHead, value))
+        {
+            RemoveFromList(listHead, value) ? cout << value << " deleted.\n" : cout << value << " not found.x";
+        }
     }
 
     Pause();
