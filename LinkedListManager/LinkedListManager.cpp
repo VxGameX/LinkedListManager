@@ -31,7 +31,7 @@ int main()
 	do
 	{
 		DisplayMenu();
-	} while (true);
+	}while (true);
 }
 
 void DisplayMenu()
@@ -125,10 +125,10 @@ void Remove()
 
         value = stoi(valueString);
 
-        while (SearchValue(listHead, value))
+        do
         {
-            RemoveFromList(listHead, value) ? cout << value << " deleted.\n" : cout << value << " not found.x";
-        }
+            RemoveFromList(listHead, value) ? cout << value << " deleted.\n" : cout << value << " not found.";
+        } while (SearchValue(listHead, value));
     }
 
     Pause();
